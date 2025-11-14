@@ -1,0 +1,23 @@
+nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #3100363b;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .right a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+h1 {
+    color: purple;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+
