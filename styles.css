@@ -1,9 +1,12 @@
+
+/* ---------------- Navigation ---------------------- */
+
 nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 5px 10px;
-            background-color: #3100363b;
+            background-color: #eff0ff;
             font-family: 'Times New Roman', Times, serif;
         }
 
@@ -15,9 +18,103 @@ nav {
         }
 
 h1 {
-    color: purple;
+    color: rgb(0, 0, 0);
     text-align: center;
     font-family: Arial, sans-serif;
 }
 
 
+/*-------------- Section 1: Explore ----------------*/
+
+
+.hero-section {
+    text-align: center;
+    padding: 40px 0px;
+    margin-left: -60px; /* Adjust value as needed */
+    background-color: #eff9ff;
+}
+
+.hero-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0077ff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/*------------ Section 2: Destinations ---------------*/
+
+
+   .destinations-section {
+      padding: 20px;
+      width: 90%;       /* or a fixed width like 800px */
+      max-width: 1000px;
+      margin: 0 auto;  
+      background-image: url('https://images.unsplash.com/photo-1692290572102-3f3e02abab55?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;       /* make image cover the entire section */
+      background-position: center;  /* center the image */
+      background-repeat: no-repeat; /* don’t repeat the image */
+
+    }
+
+    .destinations-section h1 {
+      font-size: 2rem;
+      text-align: left; /* Top-left alignment */
+      margin-bottom: 20px;
+    }
+
+    .destinations-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .destination {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .destination img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .destination-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
