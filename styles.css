@@ -31,7 +31,7 @@ h1 {
     text-align: center;
     padding: 40px 0px;
     margin-left: -60px; /* Adjust value as needed */
-    background-color: #eff9ff;
+    background-color: #eff0ff;
 }
 
 .hero-section h1 {
@@ -72,11 +72,13 @@ h1 {
       padding: 20px;
       width: 90%;       /* or a fixed width like 800px */
       max-width: 1000px;
+      height: 400px;
       margin: 0 auto;  
       background-image: url('https://images.unsplash.com/photo-1692290572102-3f3e02abab55?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       background-size: cover;       /* make image cover the entire section */
       background-position: center;  /* center the image */
       background-repeat: no-repeat; /* don’t repeat the image */
+      font-family: Georgia, 'Times New Roman', Times, serif;
 
     }
 
@@ -84,6 +86,8 @@ h1 {
       font-size: 2rem;
       text-align: left; /* Top-left alignment */
       margin-bottom: 20px;
+      color: #ffffff;
+      font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
     .destinations-grid {
