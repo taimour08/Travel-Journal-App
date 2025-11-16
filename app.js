@@ -1,9 +1,12 @@
-const http = require('http');
+const fs = require('fs');
 
-http.createServer((req, res) => {
-    if(req.url === '/hello') {
-        res.end('Hello Page!');
-    } else {
-        res.end('Other Page!');
-    }
-}).listen(8080);
+// Read file asynchronously
+fs.readFile('myfile.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file: ' + err);
+    return;
+  }
+  console.log('File content: ' + data);
+});
+
+console.log('Reading file... (this runs first!)');
