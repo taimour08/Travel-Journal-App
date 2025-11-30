@@ -1,26 +1,49 @@
-// Fetch logo from backend when page loads
-async function loadLogo() {
+// Fetch all images from backend when page loads
+async function loadAllImages() {
     try {
-        // Make API call to get logo URL from backend server
-        const response = await fetch('http://localhost:3000/api/logo');
+        // Single API call to get all settings
+        const response = await fetch('http://localhost:3000/api/settings');
         const data = await response.json();
         
-        // Get navbar element and insert logo image
-        const navbar = document.getElementById('navbar');
+        // Load logo
         if (data.logoUrl) {
+            const navbar = document.getElementById('navbar');
             navbar.innerHTML = `
                 <img src="${data.logoUrl}" 
                      alt="Logo" 
                      style="width:32px; height:32px; margin-right:10px;">
             `;
-        } else {
-            console.error('No logo URL found in database');
         }
+
+        // Load beach image
+        if (data.beach) {
+            const beachElement = document.getElementById('beach-pic');
+            if (beachElement) {
+                beachElement.src = data.beach;
+            }
+        }
+
+        // Load forest image  
+        if (data.forest) {
+            const forestElement = document.getElementById('forest-pic');
+            if (forestElement) {
+                forestElement.src = data.forest;
+            }
+        }
+
+        // Load river image
+        if (data.river) {
+            const riverElement = document.getElementById('river-pic');
+            if (riverElement) {
+                riverElement.src = data.river;
+            }
+        }
+
     } catch (error) {
-        // If API call fails, log error
-        console.error('Error loading logo:', error);
+        // Single error handling for all images
+        console.error('Error loading images:', error);
     }
 }
 
-// Load logo when page is ready (after DOM is fully loaded)
-document.addEventListener('DOMContentLoaded', loadLogo);
+// Load all images when page is ready
+document.addEventListener('DOMContentLoaded', loadAllImages);
