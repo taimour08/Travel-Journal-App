@@ -2,20 +2,27 @@
 /* ---------------- Navigation ---------------------- */
 
 nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 10px;
-            background-color: #eff0ff;
-            font-family: 'Times New Roman', Times, serif;
-        }
+    position: fixed;     /* stays on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #eff0ff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;       /* highest priority */
+}
 
-        .right a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-        }
+.right a {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+        
 
 h1 {
     color: rgb(0, 0, 0);
@@ -71,7 +78,7 @@ h1 {
    .destinations-section {
       padding: 20px;
       width: 100%;       /* or a fixed width like 800px */
-      max-width: 1200px;
+      max-width: 1000px;
       height: 400px;
       margin: 0 auto;  
       font-family: Georgia, 'Times New Roman', Times, serif;
@@ -88,8 +95,6 @@ h1 {
   }
 
 
-
-
     .destinations-grid {
       display: flex;
       gap: 50px;
@@ -98,7 +103,7 @@ h1 {
 
     .destination {
       position: relative;
-      width: 360px;
+      width: 300px;
       height: 250px;
       overflow: hidden;
       border-radius: 10px;
