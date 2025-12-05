@@ -21,7 +21,19 @@ const imageSchema = new mongoose.Schema({
   river: String
 }, { collection: 'siteSettings' });
 
+// Schema for storing image data
+const destinationsSchema = new mongoose.Schema({
+  picture: String,
+  name: String,
+  description: String,
+}, { collection: 'destinatons' });
+
+
 const SiteSettings = mongoose.model('SiteSettings', imageSchema);
+const destinationsModel = mongoose.model('destinationsModel', destinationsSchema);
+
+
+// ============= Homepage ==============
 
 // GET all site settings
 app.get('/api/settings', async (req, res) => {
@@ -47,6 +59,39 @@ app.post('/api/settings', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
+
+
+// ============= Destinations ==============
+
+
+// GET all destinations
+app.get('/api/destinations', async (req, res) => {
+  try {
+    const destinations = await destinationsModel.find();
+    res.json(destinations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST a new destination
+app.post('/api/destinations', async (req, res) => {
+  try {
+    const { picture, name, description } = req.body;
+
+    const newDestination = new destinationsModel({
+      picture,
+      name,
+      description
+    });
+
+    await newDestination.save();
+    res.status(201).json({ message: 'Destination created successfully', destination: newDestination });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
