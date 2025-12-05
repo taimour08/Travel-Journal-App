@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors'); 
+const { float } = require('webidl-conversions');
 
 const app = express();
 const PORT = 3000;
@@ -26,6 +27,7 @@ const destinationsSchema = new mongoose.Schema({
   picture: String,
   name: String,
   description: String,
+  rating: Number
 }, { collection: 'destinatons' });
 
 
@@ -77,20 +79,38 @@ app.get('/api/destinations', async (req, res) => {
 // POST a new destination
 app.post('/api/destinations', async (req, res) => {
   try {
-    const { picture, name, description } = req.body;
+    const { picture, name, description, rating } = req.body;
 
     const newDestination = new destinationsModel({
       picture,
       name,
-      description
+      description,
+      rating
     });
 
     await newDestination.save();
-    res.status(201).json({ message: 'Destination created successfully', destination: newDestination });
+
+    res.status(201).json({
+      message: 'Destination created successfully',
+      destination: newDestination
+    });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
+
+// DELETE all destinations
+app.delete('/api/destinations', async (req, res) => {
+  try {
+    await destinationsModel.deleteMany({});
+    res.json({ message: "All destinations deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 
 
 app.listen(PORT, () => {
