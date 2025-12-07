@@ -1,10 +1,14 @@
-async function loadDestinations() {
+async function loadDestinations(category = "") {
     try {
-        const response = await fetch('http://localhost:3000/api/destinations');
+        const url = category 
+            ? `http://localhost:3000/api/destinations?category=${category}`
+            : `http://localhost:3000/api/destinations`;
+
+        const response = await fetch(url);
         const data = await response.json();
 
         const container = document.getElementById('destinations');
-        container.innerHTML = ""; // Clear old content
+        container.innerHTML = ""; 
 
         data.forEach(dest => {
             const card = `
@@ -25,6 +29,15 @@ async function loadDestinations() {
         console.error("Failed to load destinations:", err);
     }
 }
+
+// load all on first load
+loadDestinations();
+
+// detect category change
+document.getElementById("category").addEventListener("change", (e) => {
+    loadDestinations(e.target.value);
+});
+
 
 // Load destinations on page load
 loadDestinations();

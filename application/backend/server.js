@@ -27,7 +27,8 @@ const destinationsSchema = new mongoose.Schema({
   picture: String,
   name: String,
   description: String,
-  rating: Number
+  rating: Number,
+  category: String
 }, { collection: 'destinatons' });
 
 
@@ -67,25 +68,31 @@ app.post('/api/settings', async (req, res) => {
 
 
 // GET all destinations
+// GET destinations with optional category filter
 app.get('/api/destinations', async (req, res) => {
   try {
-    const destinations = await destinationsModel.find();
+    const category = req.query.category;
+    const filter = category ? { category } : {};
+
+    const destinations = await destinationsModel.find(filter);
     res.json(destinations);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
+
 // POST a new destination
 app.post('/api/destinations', async (req, res) => {
   try {
-    const { picture, name, description, rating } = req.body;
+    const { picture, name, description, rating, category } = req.body;
 
     const newDestination = new destinationsModel({
       picture,
       name,
       description,
-      rating
+      rating,
+      category
     });
 
     await newDestination.save();
