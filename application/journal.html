@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Journal</title>
+    <link rel="stylesheet" href="css/styles_journal.css">
+</head>
+<body>
+    
+<!---------- Navigation Bar ------------>    
+<nav id="navbar">      
+
+   <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" 
+         alt="Logo" 
+         style="width:32px; height:32px; margin-right:10px;">
+     
+
+    <div class="right">
+        <a class="magic-btn" href="login.html">Home</a>  
+        <a class="magic-btn" href="login.html">Destinations</a>
+    </div>
+</nav>
+
+<!------------ Journal ----------------->
+
+<section class="journal-section">
+    <h1 class="journal-title">Journal</h1>
+
+    <div class="journal-actions">
+        <button id="addJournalBtn" class="magic-btn center-btn" style="margin: auto" class="addJournalBtn">Add Journal</button>
+    </div>
+
+     
+     <div id="journalCard" class="journal-card" style="display: none;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+
+        <label for="note">Note:</label>
+        <textarea id="note" placeholder="Write your note"></textarea>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" min="0" max="5" step="0.1">
+
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+
+        <button class="submit-btn">Submit</button>
+    </div>
+
+<script src = js/journalApp.js> </script>
+
+
+
+</section>
+
+
+
+</body>
+</html>
+
+
+
+
+
+     <script src="js/urlApp.js"></script>
+
+
+</body>
+</html>
