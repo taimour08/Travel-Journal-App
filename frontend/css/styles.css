@@ -2,12 +2,12 @@
 /* ---------------- Navigation ---------------------- */
 
 nav {
-    position: fixed;     /* stays on top */
+  
     top: 0;
     left: 0;
-    width: 100%;
-    background-color: #eff0ff;
-    padding: 10px 20px;
+    width: 97%;
+    background-color: #001e60;
+    padding: 20px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,12 +15,17 @@ nav {
 }
 
 .right a {
-    color: black !important;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
+    padding: 3px 6px;
 }
 
+.left 
+{
+  color: whitesmoke;
+}
 
         
 
@@ -30,6 +35,43 @@ h1 {
     font-family: Arial, sans-serif;
 }
 
+/* == Button == */
+
+.magic-btn {
+  padding: 2px 2px;
+  color: antiquewhite;
+  border: 2px solid #4a68ff;
+  border-radius: 6px;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+}
+/* glowing stars */
+.magic-btn::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow:
+    0 0 6px #ffd700,
+    20px 10px 4px #fff,
+    40px -10px 6px #ffd700,
+    60px 5px 4px #fff;
+  animation: sparkle 1.8s linear infinite;
+  opacity: 0.8;
+}
+
+/* animation moves sparkles slowly */
+@keyframes sparkle {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(60px); }
+}
+
 
 /*-------------- Section 1: Explore ----------------*/
 
@@ -37,13 +79,12 @@ h1 {
 .hero-section {
     text-align: center;
     padding: 60px 30px;
-    margin-left: -10px; /* Adjust value as needed */
-    background-color: #eff0ff;
+    margin-left: 0px; /* Adjust value as needed */
+
 }
 
 .hero-section h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     
 }
@@ -93,6 +134,8 @@ h1 {
 
     
   }
+
+
 
 
     .destinations-grid {

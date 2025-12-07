@@ -6,14 +6,7 @@ async function loadAllImages() {
         const data = await response.json();
         
         // Load logo
-        if (data.logoUrl) {
-            const navbar = document.getElementById('navbar');
-            navbar.innerHTML = `
-                <img src="${data.logoUrl}" 
-                     alt="Logo" 
-                     style="width:32px; height:32px; margin-right:10px;">
-            `;
-        }
+       
 
         // Load beach image
         if (data.beach) {
