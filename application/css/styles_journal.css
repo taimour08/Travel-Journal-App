@@ -138,3 +138,35 @@ body {
 .submit-btn:hover {
     background: #512bd4;
 }
+
+
+/* -Previous Journals- */
+
+#prev-journals .card, 
+#prev-journals .journal-card {
+    margin-bottom: 20px; /* space between cards */
+}
+
+.prev-journals {
+    display: flex;
+    gap: 20px;
+    padding: 40px 40px;
+} 
+
+.card {
+    width: 300px;  
+    padding: 15px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    font-family: Arial, sans-serif;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+}

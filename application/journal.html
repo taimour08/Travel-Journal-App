@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/styles_journal.css">
 </head>
 <body>
-    
+   
 <!---------- Navigation Bar ------------>    
 <nav id="navbar">      
 
@@ -20,7 +20,7 @@
     </div>
 </nav>
 
-<!------------ Journal ----------------->
+<!------------ Add Journal ----------------->
 
 <section class="journal-section">
     <h1 class="journal-title">Journal</h1>
@@ -41,16 +41,20 @@
         <input type="number" id="rating" min="0" max="5" step="0.1">
 
         <label for="date">Date:</label>
-        <input type="date" id="date">
+       <input type="text" id="date" placeholder="02/05/2024">
 
         <button class="submit-btn">Submit</button>
     </div>
 
-<script src = js/journalApp.js> </script>
-
-
-
 </section>
+
+<!------------ Prev Journals ----------------->
+
+<div id="prev-journals-container">
+    <h1>Previous Journals</h1>
+    <div id="prev-journals"></div>
+</div>
+
 
 
 
@@ -61,7 +65,7 @@
 
 
 
-     <script src="js/urlApp.js"></script>
+     <script src="js/journalApp.js"></script>
 
 
 </body>
