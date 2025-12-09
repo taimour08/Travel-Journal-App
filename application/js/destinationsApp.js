@@ -1,3 +1,7 @@
+
+// This function hits the API Endpoint to dsiplay all cards or another endpoint 
+// to display only the category chosen in the Select Menu
+
 async function loadDestinations(category = "") {
     try {
         const url = category 
@@ -33,11 +37,11 @@ async function loadDestinations(category = "") {
 // load all on first load
 loadDestinations();
 
-// detect category change
+// detect category change and calls the function again, passing the new category as argument
 document.getElementById("category").addEventListener("change", (e) => {
     loadDestinations(e.target.value);
 });
 
 
-// Load destinations on page load
-loadDestinations();
+
+
