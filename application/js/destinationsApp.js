@@ -17,7 +17,7 @@ async function loadDestinations(category = "") {
                     <h3>${dest.name}</h3>
                     <p>${dest.description}</p>
                     <div class="card-footer">
-                        <span class="rating">⭐ ${dest.rating}</span>
+                        <span class="rating"> ${dest.rating}</span>
                         <button>Add to Journal</button>
                     </div>
                 </div>

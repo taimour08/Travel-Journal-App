@@ -60,3 +60,61 @@ window.onload = loadJournals;
 
 });
 
+
+// ================================
+//  SUBMIT JOURNAL ENTRY
+// ================================
+
+// When "Submit" button in the form is clicked:
+document.getElementById("submit-btn").addEventListener("click", async () => {
+
+    // 1. Get values from input fields
+    const name = document.getElementById("name").value;
+    const note = document.getElementById("note").value;
+    const rating = document.getElementById("rating").value;
+    const date = document.getElementById("date").value;
+
+    // 2. Simple validation
+    if (!name || !note || !rating || !date) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    try {
+        // 3. Send data to backend API (POST request)
+        const response = await fetch("http://localhost:3000/api/journals", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                note,
+                rating,
+                date
+            })
+        });
+
+        // 4. Convert backend JSON response
+        const result = await response.json();
+
+        console.log("Journal saved:", result);
+
+        // 5. After saving → reload the list of journals
+        loadJournals();
+
+        // 6. Clear the form
+        document.getElementById("name").value = "";
+        document.getElementById("note").value = "";
+        document.getElementById("rating").value = "";
+        document.getElementById("date").value = "";
+
+        // 7. Hide the journal form again
+        document.getElementById("journalCard").style.display = "none";
+
+    } catch (error) {
+        console.error("Failed to submit journal:", error);
+    }
+});
+
+
