@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="output"></h2>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+
+    document.getElementById("output").textContent =
+        "Name from URL = " + name;
+</script>
+
+</body>
+</html>
