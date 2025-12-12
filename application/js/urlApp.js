@@ -40,3 +40,6 @@ async function loadAllImages() {
 
 // Load all images when page is ready
 document.addEventListener('DOMContentLoaded', loadAllImages);
+
+
+module.exports = { loadAllImages };

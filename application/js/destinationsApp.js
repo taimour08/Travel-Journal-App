@@ -1,6 +1,12 @@
+// Read category from URL
+const params = new URLSearchParams(window.location.search);
+const selectedCategory = params.get("category");  // "beach", "forest", "river" OR null
+
+
+// MAIN FUNCTION
 async function loadDestinations(category = "") {
     try {
-        const url = category 
+        const url = category
             ? `http://localhost:3000/api/destinations?category=${category}`
             : `http://localhost:3000/api/destinations`;
 
@@ -8,7 +14,7 @@ async function loadDestinations(category = "") {
         const data = await response.json();
 
         const container = document.getElementById('destinations');
-        container.innerHTML = ""; 
+       
 
         data.forEach(dest => {
             const card = `
@@ -17,7 +23,7 @@ async function loadDestinations(category = "") {
                     <h3>${dest.name}</h3>
                     <p>${dest.description}</p>
                     <div class="card-footer">
-                        <span class="rating"> ${dest.rating}</span>
+                        <span class="rating">${dest.rating}</span>
                         <button>Add to Journal</button>
                     </div>
                 </div>
@@ -30,14 +36,9 @@ async function loadDestinations(category = "") {
     }
 }
 
-// load all on first load
-loadDestinations();
-
-// detect category change
-document.getElementById("category").addEventListener("change", (e) => {
-    loadDestinations(e.target.value);
-});
+// Load category **automatically**
+loadDestinations(selectedCategory);
 
 
-// Load destinations on page load
-loadDestinations();
+
+module.exports = { loadDestinations };
